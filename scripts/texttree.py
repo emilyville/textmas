@@ -42,7 +42,7 @@ while(1):
         if "red" in message_low:
                 set_colors(red=True)
 
-        if "white" in message_low):
+        if "white" in message_low:
                 set_colors(white=True)
 
         if "purple" in message_low:
