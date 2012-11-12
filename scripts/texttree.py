@@ -36,33 +36,33 @@ def main(argc=None):
                 message = json["sms_messages"][0]["body"]
                 message_low = message.lower()
                 if "yellow" in message_low:
-                        set_colors(yellow=True)
+                        set_colors(ser, yellow=True)
 
                 if "blue" in message_low:
-                        set_colors(blue=True)
+                        set_colors(ser, blue=True)
 
                 if "red" in message_low:
-                        set_colors(red=True)
+                        set_colors(ser, red=True)
 
                 if "white" in message_low:
-                        set_colors(white=True)
+                        set_colors(ser, white=True)
 
                 if "purple" in message_low:
-                        set_colors(red=True, blue=True)
+                        set_colors(ser, red=True, blue=True)
 
                 if "green" in message_low:
-                        set_colors(yellow=True, blue=True)
+                        set_colors(ser, yellow=True, blue=True)
 
                 if "orange" in message_low:
-                        set_colors(yellow=True, red=True)
+                        set_colors(ser, yellow=True, red=True)
 
                 if "rainbow" in message_low:
-                        set_colors(True, True, True, True)
+                        set_colors(ser, True, True, True, True)
 
                 time.sleep(5)
 
 
-def set_colors(red=False, blue=False, yellow=False, white=False):
+def set_colors(ser, red=False, blue=False, yellow=False, white=False):
         if (red):
                 ser.write('a')
         else:
