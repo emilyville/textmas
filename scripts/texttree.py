@@ -8,10 +8,10 @@ import urllib2
 
 parser = argparse.ArgumentParser(
         description='Control Arduino via serial interface')
-parser.add_argument('account_sid', required=True)
-parser.add_argument('auth_token', required=True)
-parser.add_argument('incoming_number', required=True)
-parser.add_argument('port', default='/dev/ttyACM0')
+parser.add_argument('--account_sid', required=True)
+parser.add_argument('--auth_token', required=True)
+parser.add_argument('--incoming_number', required=True)
+parser.add_argument('--port', default='/dev/ttyACM0')
 
 args = parser.parse_args()
 
