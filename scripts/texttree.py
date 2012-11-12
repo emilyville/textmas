@@ -59,6 +59,9 @@ def main(argc=None):
                 if "rainbow" in message_low:
                         set_colors(ser, True, True, True, True)
 
+                if "none" in message_low:
+                        set_colors(ser)
+
                 time.sleep(5)
 
 
