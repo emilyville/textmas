@@ -1,0 +1,38 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          texttree
+# Required-Start:    $local_fs $named
+# Required-Stop:     $local_fs $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start/stop texttree
+### END INIT INFO
+ 
+# More details see:
+# http://github.com/emilyville/textmas
+ 
+### Customize this entry
+# Set the USER variable to the name of the user to start tightvncserver under
+export USER='pi'
+#export ACCOUNT_SID=
+#export AUTH_TOKEN=
+#export INCOMING_NUMBER=
+### End customization required
+ 
+eval cd ~$USER
+ 
+case "$1" in
+  start)
+    su $USER -c "/usr/bin/texttree.py --account_sid=$ACCOUNT_SID --auth_token=$AUTH_TOKEN --incoming_number=$INCOMING_NUMBER"
+    echo "Starting texttree server for $USER "
+    ;;
+  stop)
+    pkill -f texttree.py
+    echo "texttree stopped"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/texttree {start|stop}"
+    exit 1
+    ;;
+esac
+exit 0
