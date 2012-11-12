@@ -3,6 +3,7 @@
 import argparse
 import serial
 import simplejson
+import sys
 import time
 import urllib2
 
