@@ -27,10 +27,10 @@ def main(argc=None):
         opener = urllib2.build_opener(handler)
         urllib2.install_opener(opener)
         while(1):
-                f = urllib2.urlopen(
-                        ("https://api.twilio.com/2010-04-01/Accounts/%(sid)s/SMS/"+
+                url = ("https://api.twilio.com/2010-04-01/Accounts/%(sid)s/SMS/"+
                          "Messages.json?To=%(tel)s&PageSize=1") % \
-                        {'sid': args.account_sid, 'tel': args.incoming_number})
+                        {'sid': args.account_sid, 'tel': args.incoming_number}
+                f = urllib2.urlopen(url)
                 json_contents = f.read()
                 json = simplejson.loads(json_contents)
                 message = json["sms_messages"][0]["body"]
