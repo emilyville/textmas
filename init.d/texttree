@@ -23,7 +23,7 @@ eval cd ~$USER
  
 case "$1" in
   start)
-    su $USER -c "/usr/bin/texttree.py --account_sid=$ACCOUNT_SID --auth_token=$AUTH_TOKEN --incoming_number=$INCOMING_NUMBER"
+    su $USER -c "/usr/bin/texttree.py --account_sid=$ACCOUNT_SID --auth_token=$AUTH_TOKEN --incoming_number=$INCOMING_NUMBER &"
     echo "Starting texttree server for $USER "
     ;;
   stop)
