@@ -7,7 +7,7 @@ import sys
 import time
 import urllib2
 
-def main(argc=None):
+def main(argv=None):
         parser = argparse.ArgumentParser(
                 description='Control Arduino via serial interface')
         parser.add_argument('--account_sid', required=True)
@@ -15,7 +15,10 @@ def main(argc=None):
         parser.add_argument('--incoming_number', required=True)
         parser.add_argument('--port', default='/dev/ttyACM0')
 
-        args = parser.parse_args()
+        if argv is None:
+                argv = sys.argv
+
+        args = parser.parse_args(argv)
 
         ser = serial.Serial(args.port, 9600, timeout=1)
 
