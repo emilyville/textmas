@@ -35,39 +35,42 @@ def main():
                 url = ("https://api.twilio.com/2010-04-01/Accounts/%(sid)s/SMS/"+
                          "Messages.json?To=%(tel)s&PageSize=1") % \
                         {'sid': args.account_sid, 'tel': args.incoming_number}
-                f = urllib2.urlopen(url)
-                json_contents = f.read()
-                json = simplejson.loads(json_contents)
-                message = json["sms_messages"][0]["body"]
-                message_low = message.lower()
-                colors = 0
-                if "yellow" in message_low:
-                        colors |= YELLOW
-
-                if "blue" in message_low:
-                        colors |= BLUE 
-
-                if "red" in message_low:
-                        colors |= RED
-
-                if "white" in message_low:
-                        colors |= WHITE
-
-                if "purple" in message_low:
-                        colors |= RED | BLUE
-
-                if "green" in message_low:
-                        colors |= BLUE | YELLOW
-
-                if "orange" in message_low:
-                        colors |= RED | YELLOW
-
-                if "rainbow" in message_low:
-                        colors |= RED | YELLOW | BLUE | WHITE
-
-                if "none" in message_low:
+                try: 
+                        f = urllib2.urlopen(url)
+                        json_contents = f.read()
+                        json = simplejson.loads(json_contents)
+                        message = json["sms_messages"][0]["body"]
+                        message_low = message.lower()
                         colors = 0
-                set_colors(ser, colors)
+                        if "yellow" in message_low:
+                                colors |= YELLOW
+
+                        if "blue" in message_low:
+                                colors |= BLUE 
+
+                        if "red" in message_low:
+                                colors |= RED
+
+                        if "white" in message_low:
+                                colors |= WHITE
+
+                        if "purple" in message_low:
+                                colors |= RED | BLUE
+
+                        if "green" in message_low:
+                                colors |= BLUE | YELLOW
+
+                        if "orange" in message_low:
+                                colors |= RED | YELLOW
+
+                        if "rainbow" in message_low:
+                                colors |= RED | YELLOW | BLUE | WHITE
+
+                        if "none" in message_low:
+                                colors = 0
+                        set_colors(ser, colors)
+                except urllib2.URLError:
+                        pass
                 time.sleep(5)
 
 
