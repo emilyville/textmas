@@ -7,6 +7,11 @@ import sys
 import time
 import urllib2
 
+RED = 1 << 0
+BLUE = 1 << 1
+YELLOW = 1 << 2
+WHITE = 1 << 3
+
 def main():
         parser = argparse.ArgumentParser(
                 description='Control Arduino via serial interface')
@@ -35,53 +40,54 @@ def main():
                 json = simplejson.loads(json_contents)
                 message = json["sms_messages"][0]["body"]
                 message_low = message.lower()
+                colors = 0
                 if "yellow" in message_low:
-                        set_colors(ser, yellow=True)
+                        colors |= YELLOW
 
                 if "blue" in message_low:
-                        set_colors(ser, blue=True)
+                        colors |= BLUE 
 
                 if "red" in message_low:
-                        set_colors(ser, red=True)
+                        colors |= RED
 
                 if "white" in message_low:
-                        set_colors(ser, white=True)
+                        colors |= WHITE
 
                 if "purple" in message_low:
-                        set_colors(ser, red=True, blue=True)
+                        colors |= RED | BLUE
 
                 if "green" in message_low:
-                        set_colors(ser, yellow=True, blue=True)
+                        colors |= BLUE | YELLOW
 
                 if "orange" in message_low:
-                        set_colors(ser, yellow=True, red=True)
+                        colors |= RED | YELLOW
 
                 if "rainbow" in message_low:
-                        set_colors(ser, True, True, True, True)
+                        colors |= RED | YELLOW | BLUE | WHITE
 
                 if "none" in message_low:
-                        set_colors(ser)
-
+                        colors = 0
+                set_colors(ser, colors)
                 time.sleep(5)
 
 
-def set_colors(ser, red=False, blue=False, yellow=False, white=False):
-        if (red):
+def set_colors(ser, colors):
+        if (RED & colors > 0):
                 ser.write('a')
         else:
                 ser.write('b')
 
-        if (blue):
+        if (BLUE & colors > 0):
                 ser.write('g')
         else:
                 ser.write('h')
 
-        if (white):
+        if (WHITE & colors > 0):
                 ser.write('c')
         else:
                 ser.write('d')
 
-        if (yellow):
+        if (YELLOW & colors > 0):
                 ser.write('e')
         else:
                 ser.write('f')
