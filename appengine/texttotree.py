@@ -17,7 +17,7 @@ class TxtHandler(webapp2.RequestHandler):
 		elif 'purple' in body:
 			self.response.write('Some scallywag hornswaggled me purple, so this is the best I can do.')
 		elif 'green' in body:
-			self.response.write('Even an old salt like me get\'s qeasy once in a while.')
+			self.response.write('Even an old salt like me get\'s queasy once in a while.')
 		elif 'rainbow' in body:
 			self.response.write('A proud choice! I\'m givin\' it all I\'ve got.')
 		elif 'none' in body:
