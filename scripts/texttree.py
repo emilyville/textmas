@@ -63,6 +63,9 @@ def main():
                         if "orange" in message_low:
                                 colors |= RED | YELLOW
 
+                        if "pink" in message_low:
+                                colors |= RED | WHITE
+
                         if "rainbow" in message_low:
                                 colors |= RED | YELLOW | BLUE | WHITE
 
