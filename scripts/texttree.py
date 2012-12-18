@@ -42,36 +42,49 @@ def main():
                         message = json["sms_messages"][0]["body"]
                         message_low = message.lower()
                         colors = 0
+                        color_set = False
                         if "yellow" in message_low:
                                 colors |= YELLOW
+                                color_set = True
 
                         if "blue" in message_low:
                                 colors |= BLUE 
+                                color_set = True
 
                         if "red" in message_low:
                                 colors |= RED
+                                color_set = True
 
                         if "white" in message_low:
                                 colors |= WHITE
+                                color_set = True
 
                         if "purple" in message_low:
                                 colors |= RED | BLUE
+                                color_set = True
 
                         if "green" in message_low:
                                 colors |= BLUE | YELLOW
+                                color_set = True
 
                         if "orange" in message_low:
                                 colors |= RED | YELLOW
+                                color_set = True
 
                         if "pink" in message_low:
                                 colors |= RED | WHITE
+                                color_set = True
 
                         if "rainbow" in message_low:
                                 colors |= RED | YELLOW | BLUE | WHITE
+                                color_set = True
 
                         if "none" in message_low:
                                 colors = 0
-                        set_colors(ser, colors)
+                                color_set = True
+
+                        if color_set:
+                                set_colors(ser, colors)
                 except urllib2.URLError:
                         pass
                 time.sleep(5)
