@@ -4,8 +4,7 @@ Textmas
 How it works: Here’s *basically* how you do it:
 ---------------------
 
-1. Buy all the stuff 
-This is the biggest chore. The Raspberry Pi might be the most difficult to acquire, since supply is currently exceeding demand.
+1. Buy all the stuff.  
 2. Set up your Twilio number
 3. Install the code on the raspberry pi and connect it to your wifi
 4. Mount it in the plastic box 
