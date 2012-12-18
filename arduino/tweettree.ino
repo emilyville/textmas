@@ -3,7 +3,7 @@
 Texting Christmas Tree receiver code
 Controls the color of Christmas tree lights
 
-Based on "Tweeting Christmas Tree", used under a Creative Commons Attribution-ShareAlike license: http://www.instructables.com/id/Tweeting-Christmas-Tree/.
+Based on "Tweeting Christmas Tree", http://www.instructables.com/id/Tweeting-Christmas-Tree/, used under a Creative Commons Attribution Non-commercial ShareAlike license: http://creativecommons.org/licenses/by-nc-sa/3.0/.
 
 */
 
