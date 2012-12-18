@@ -1,9 +1,9 @@
 Textmas
 ====================
 
-How it works
+How it works: Here’s *basically* how you do it:
 ---------------------
-Here’s *basically* how you do it:
+
 1. Buy all the stuff 
 This is the biggest chore. The Raspberry Pi might be the most difficult to acquire, since supply is currently exceeding demand.
 2. Set up your Twilio number
