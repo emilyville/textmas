@@ -4,24 +4,27 @@ Textmas
 How it works
 ---------------------
 Here’s *basically* how you do it:
-Buy all the stuff 
+1. Buy all the stuff 
 This is the biggest chore. The Raspberry Pi might be the most difficult to acquire, since supply is currently exceeding demand.
-Set up your Twilio number
-Install the code on the raspberry pi and connect it to your wifi
-Mount it in the plastic box 
+2. Set up your Twilio number
+3. Install the code on the raspberry pi and connect it to your wifi
+4. Mount it in the plastic box 
 cut out a hole for the chargers, and for the four sockets and attaching the arduino and raspberry pi to the lid. Wire it all together patiently.
-Deploy to AppEngine.
-Make a sign.
-Put lights in your trees and plug it in!
+5. Deploy to AppEngine.
+6. Make a sign (or alter the one below.)
+7. Put lights in your trees and plug it in!
 
 What you’ll need:
 ---------------------
 We relied heavily on this awesome instructables to get started: http://www.instructables.com/id/Tweeting-Christmas-Tree/
 But made some modifications. For the most part, it’s Arduino + Raspberry Pi + Twilio API + Google AppEngine
 
-## <a name="Poster"></a>Poster
+
 ![textmas](https://raw.github.com/emilyville/textmas/master/poster/lightsign.jpg "textmas")
+download the big PDF here: [Poster](https://github.com/emilyville/textmas/blob/master/poster/lightsign.pdf "Poster").
+
 Here are the ingredients:
+---------------------
 
 The code (you're here!)
 https://github.com/emilyville/textmas
