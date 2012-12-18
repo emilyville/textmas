@@ -1,7 +1,7 @@
 Textmas
 ====================
 
-How it works: Here’s *basically* how you do it:
+Here’s *basically* how to set up your own merry textmas:
 ---------------------
 
 1. Buy all the stuff.  
