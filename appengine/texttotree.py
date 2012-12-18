@@ -24,6 +24,8 @@ class TxtHandler(webapp2.RequestHandler):
 			self.response.write('A proud choice! I\'m givin\' it all I\'ve got.')
 		elif 'none' in body:
 			self.response.write('Son of biscuit eater! It\'s gone dark!')
+		elif 'thanks' in body or 'thank you' in body:
+			self.response.write('\'Twas nothing. Now send me another or leaf me alone!')
 		else:
 			self.response.write('Ahoy, matey! What color be to your liking?')
 
