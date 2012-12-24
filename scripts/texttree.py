@@ -32,6 +32,7 @@ def main():
         opener = urllib2.build_opener(handler)
         urllib2.install_opener(opener)
 	current_colors = 0
+	last_message = 0
         while(1):
                 url = ("https://api.twilio.com/2010-04-01/Accounts/%(sid)s/SMS/"+
                          "Messages.json?To=%(tel)s&PageSize=1") % \
@@ -40,6 +41,11 @@ def main():
                         f = urllib2.urlopen(url)
                         json_contents = f.read()
                         json = simplejson.loads(json_contents)
+			sid = json["sms_messages"][0]["sid"]
+			if last_message == sid:
+				time.sleep(5)
+				continue
+			last_message = sid
                         message = json["sms_messages"][0]["body"]
                         message_low = message.lower()
                         colors = 0
