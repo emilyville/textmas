@@ -46,51 +46,50 @@ def main():
 				time.sleep(5)
 				continue
 			last_message = sid
-                        message = json["sms_messages"][0]["body"]
-                        message_low = message.lower()
+                        message = json["sms_messages"][0]["body"].lower()
                         colors = 0
                         color_set = False
-                        if "yellow" in message_low:
+                        if "yellow" in message:
                                 colors |= YELLOW
                                 color_set = True
 
-                        if "blue" in message_low:
+                        if "blue" in message:
                                 colors |= BLUE 
                                 color_set = True
 
-                        if "red" in message_low:
+                        if "red" in message:
                                 colors |= RED
                                 color_set = True
 
-                        if "white" in message_low:
+                        if "white" in message:
                                 colors |= WHITE
                                 color_set = True
 
-                        if "purple" in message_low:
+                        if "purple" in message:
                                 colors |= RED | BLUE
                                 color_set = True
 
-                        if "green" in message_low:
+                        if "green" in message:
                                 colors |= BLUE | YELLOW
                                 color_set = True
 
-                        if "orange" in message_low:
+                        if "orange" in message:
                                 colors |= RED | YELLOW
                                 color_set = True
 
-                        if "pink" in message_low:
+                        if "pink" in message:
                                 colors |= RED | WHITE
                                 color_set = True
 
-                        if "rainbow" in message_low or "all" in message_low:
+                        if ("rainbow" or "all") in message:
                                 colors |= RED | YELLOW | BLUE | WHITE
                                 color_set = True
 
-                        if "none" in message_low:
+                        if "none" in message:
                                 colors = 0
                                 color_set = True
 
-			if "cheer" in message_low:
+			if "cheer" in message:
 				set_colors(ser, RED)
 				time.sleep(.5)
 				set_colors(ser, RED | WHITE)
@@ -110,7 +109,7 @@ def main():
                         if color_set:
 				current_colors = colors
 			
-			if "blink" in message_low or "twinkle" in message_low:
+			if ("blink" or "twinkle" or "flash") in message:
 				set_colors(ser, current_colors)
 				time.sleep(.25)
 				set_colors(ser, 0)
