@@ -81,7 +81,7 @@ def main():
                                 colors |= RED | WHITE
                                 color_set = True
 
-                        if ("rainbow" or "all") in message:
+                        if "rainbow" in message or "all" in message:
                                 colors |= RED | YELLOW | BLUE | WHITE
                                 color_set = True
 
@@ -109,7 +109,7 @@ def main():
                         if color_set:
 				current_colors = colors
 			
-			if ("blink" or "twinkle" or "flash") in message:
+			if "blink" in message or "twinkle" in message or "flash" in message:
 				set_colors(ser, current_colors)
 				time.sleep(.25)
 				set_colors(ser, 0)
