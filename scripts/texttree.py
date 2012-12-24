@@ -109,9 +109,22 @@ def main():
 
                         if color_set:
 				current_colors = colors
-                                set_colors(ser, colors)
-			else:
+			
+			if "blink" in message_low or "twinkle" in message_low:
 				set_colors(ser, current_colors)
+				time.sleep(.25)
+				set_colors(ser, 0)
+				time.sleep(.25)
+				set_colors(ser, current_colors)
+				time.sleep(.25)
+				set_colors(ser, 0)
+				time.sleep(.25)
+				set_colors(ser, current_colors)
+				time.sleep(.25)
+				set_colors(ser, 0)
+				time.sleep(.25)
+	
+			set_colors(ser, current_colors)
 
                 except urllib2.URLError:
                         pass
