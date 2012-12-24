@@ -31,6 +31,7 @@ def main():
         handler = urllib2.HTTPBasicAuthHandler(password_mgr)
         opener = urllib2.build_opener(handler)
         urllib2.install_opener(opener)
+	current_colors = 0
         while(1):
                 url = ("https://api.twilio.com/2010-04-01/Accounts/%(sid)s/SMS/"+
                          "Messages.json?To=%(tel)s&PageSize=1") % \
@@ -75,7 +76,7 @@ def main():
                                 colors |= RED | WHITE
                                 color_set = True
 
-                        if "rainbow" in message_low:
+                        if "rainbow" in message_low or "all" in message_low:
                                 colors |= RED | YELLOW | BLUE | WHITE
                                 color_set = True
 
@@ -83,8 +84,29 @@ def main():
                                 colors = 0
                                 color_set = True
 
+			if "cheer" in message_low:
+				set_colors(ser, RED)
+				time.sleep(.5)
+				set_colors(ser, RED | WHITE)
+				time.sleep(.5)
+				set_colors(ser, RED | WHITE | YELLOW)
+				time.sleep(.5)
+				set_colors(ser, RED | WHITE | YELLOW | BLUE)
+				time.sleep(.5)
+				set_colors(ser, WHITE | BLUE)
+				time.sleep(.5)
+				set_colors(ser, RED | YELLOW)
+				time.sleep(.5)
+				set_colors(ser, WHITE | BLUE)
+				time.sleep(.5)
+				set_colors(ser, RED | YELLOW)
+
                         if color_set:
+				current_colors = colors
                                 set_colors(ser, colors)
+			else:
+				set_colors(ser, current_colors)
+
                 except urllib2.URLError:
                         pass
                 time.sleep(5)

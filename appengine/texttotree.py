@@ -20,7 +20,7 @@ class TxtHandler(webapp2.RequestHandler):
 			self.response.write('Even an old salt like me get\'s queasy once in a while.')
                 elif 'pink' in body:
                         self.response.write('I look good, and anyone who disagrees can walk the plank!')
-		elif 'rainbow' in body:
+		elif 'rainbow' in body or 'all' in body:
 			self.response.write('A proud choice! I\'m givin\' it all I\'ve got.')
 		elif 'none' in body:
 			self.response.write('Son of biscuit eater! It\'s gone dark!')
